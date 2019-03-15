@@ -3,8 +3,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as pyplot
 import scipy
-import sklearn
-
+from sklearn.preprocessing import Imputer
+from sklearn.model_selection import train_test_split
 #Reading in the data
 print("Breast Cancer Wisconsin (Diagnostic) Data Set")
 
@@ -27,7 +27,9 @@ y = array[:569, 1]
 
 #transformed to fit the mean value of a column
 imputer = Imputer()
-X_transf = imputer.fit_tranform(X)
+X_transf = imputer.fit_transform(X)
 
 #Splitting the dataset
 X_train, X_test, y_train, y_test = train_test_split(X_transf, y, test_size = 0.3)
+
+#Deep Learning Model Fit
